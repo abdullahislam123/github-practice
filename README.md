@@ -1,8 +1,14 @@
 # Codrithm - Professional Developer Community Website
 
+<img src="/screencapture-localhost-5173-2026-03-27-18_59_57.png" alt="Codrithm Website Screenshot" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+
+## 📸 Website Preview
+
+**[View Live Demo](#)** | **[Screenshots](#screenshots)**
+
 ![Website Screenshot](./screenshots/home-page.png)
 
-A stunning, modern landing page for Codrithm built with React.js, Vite, and Tailwind CSS. Designed with professional UI/UX principles to attract and convert developers.
+> A stunning, modern landing page for Codrithm built with React.js, Vite, and Tailwind CSS. Designed with professional UI/UX principles to attract and convert developers.
 
 ## 🎨 Website Features
 
