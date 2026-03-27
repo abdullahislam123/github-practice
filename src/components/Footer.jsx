@@ -35,25 +35,31 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Community</h3>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="hover:text-primary-400 transition">Discord</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition">WhatsApp</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition">GitHub</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition">Twitter</a></li>
+                            <li><a href="#" className="flex items-center gap-2 hover:text-primary-400 transition">💬 Discord</a></li>
+                            <li><a href="#" className="flex items-center gap-2 hover:text-primary-400 transition">💬 WhatsApp</a></li>
+                            <li><a href="#" className="flex items-center gap-2 hover:text-primary-400 transition">💻 GitHub</a></li>
+                            <li><a href="#" className="flex items-center gap-2 hover:text-primary-400 transition">🐦 Twitter</a></li>
                         </ul>
                     </div>
 
                     {/* Contact */}
                     <div>
                         <h3 className="text-white font-semibold mb-4">Connect</h3>
-                        <div className="flex space-x-4 text-lg">
-                            <a href="#" className="hover:text-primary-400 transition">
+                        <div className="flex space-x-6 text-2xl">
+                            <a href="#" className="hover:scale-125 transition transform hover:text-blue-400" title="Email">
                                 ✉️
                             </a>
-                            <a href="#" className="hover:text-primary-400 transition">
-                                ⚙️
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition transform hover:text-gray-300" title="GitHub">
+                                💻
                             </a>
-                            <a href="#" className="hover:text-primary-400 transition">
-                                in
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition transform hover:text-blue-500" title="LinkedIn">
+                                🔗
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition transform hover:text-blue-400" title="Twitter">
+                                🐦
+                            </a>
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition transform hover:text-green-400" title="WhatsApp">
+                                💬
                             </a>
                         </div>
                     </div>

@@ -6,11 +6,6 @@ export default function Navigation() {
 
     const links = [
         { name: 'Home', path: '/' },
-        { name: 'About', path: '/about' },
-        { name: 'Team', path: '/team' },
-        { name: 'Events', path: '/events' },
-        { name: 'Resources', path: '/resources' },
-        { name: 'Join', path: '/join' },
     ]
 
     return (
@@ -38,13 +33,6 @@ export default function Navigation() {
                         ))}
                     </div>
 
-                    {/* Desktop CTA Button */}
-                    <div className="hidden md:block">
-                        <Link to="/join" className="btn-primary">
-                            Join Now
-                        </Link>
-                    </div>
-
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -67,13 +55,6 @@ export default function Navigation() {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link
-                            to="/join"
-                            className="btn-primary block text-center mt-4"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Join Now
-                        </Link>
                     </div>
                 )}
             </div>
