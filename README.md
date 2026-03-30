@@ -134,7 +134,15 @@ public/                      # Static assets
 index.html                   # HTML template
 ```
 
-## 🎯 Home Page Content
+## � Home Page
+
+<img src="/screencapture-localhost-5173-2026-03-27-18_59_57.png" alt="Home Page Screenshot" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+
+## 📖 About Page
+
+<img src="/screencapture-localhost-5173-about-2026-03-30-15_48_39.png" alt="About Page Screenshot" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+
+## �🎯 Home Page Content
 
 ### Hero Section
 

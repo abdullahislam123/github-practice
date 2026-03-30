@@ -6,6 +6,7 @@ export default function Navigation() {
 
     const links = [
         { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
     ]
 
     return (
@@ -14,7 +15,7 @@ export default function Navigation() {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-3 group">
-                        <div className="w-11 h-11 bg-gradient-to-br from-primary-600 via-accent to-primary-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300 transform group-hover:scale-110 duration-300">
+                        <div className="w-11 h-11 bg-gradient-to-br from-primary-600 via-accent to-primary-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300 transform group-hover:scale-110">
                             C
                         </div>
                         <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent hidden sm:inline">Codrithm</span>
