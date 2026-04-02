@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import TeamPage from './pages/TeamPage'
+import EventsPage from './pages/EventsPage'
 
 export default function App() {
     return (
@@ -18,6 +19,7 @@ export default function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/team" element={<TeamPage />} />
+                        <Route path="/events" element={<EventsPage />} />
                     </Routes>
                 </main>
 
