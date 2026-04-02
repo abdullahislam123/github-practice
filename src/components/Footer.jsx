@@ -1,95 +1,94 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Newsletter from './Newsletter'
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear()
-
     return (
-        <footer className="bg-gradient-to-b from-gray-900 via-gray-900 to-black text-gray-300 mt-20 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                {/* Newsletter Section */}
-                <div className="bg-gradient-to-r from-primary-900 to-primary-800 rounded-2xl p-10 mb-16 border border-primary-700">
-                    <div className="max-w-2xl">
-                        <h3 className="text-3xl font-black text-white mb-4">Stay Updated</h3>
-                        <p className="text-primary-100 mb-6 text-lg">Get the latest news, events, and resources delivered to your inbox</p>
-                        <div className="flex gap-3">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="flex-1 px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent transition-colors"
-                            />
-                            <button className="px-8 py-3 bg-gradient-to-r from-accent to-yellow-400 text-gray-900 rounded-lg font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <footer className="bg-[#010308] border-t border-white/5 pt-20 relative overflow-hidden">
+            {/* Ambient Background Elements */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full filter blur-[150px] pointer-events-none"></div>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Newsletter Section - Integrated cleanly */}
+                <div className="mb-24">
+                    <Newsletter />
+                </div>
+                
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
-                    {/* Brand */}
-                    <div className="md:col-span-2">
-                        <div className="flex items-center space-x-3 mb-6">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent rounded-lg flex items-center justify-center text-white font-black text-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                    {/* Brand Column */}
+                    <div className="lg:col-span-1">
+                        <Link flex="true" to="/" className="flex items-center space-x-3 mb-6 group inline-flex">
+                            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">
                                 C
                             </div>
-                            <span className="text-2xl font-black text-white">Codrithm</span>
-                        </div>
-                        <p className="text-gray-400 text-lg leading-relaxed font-medium">
-                            Learn, Build, and Grow Together. Join the community of 5000+ developers learning and building amazing projects.
+                            <span className="text-2xl font-black text-white tracking-tight">Codrithm</span>
+                        </Link>
+                        <p className="text-gray-500 font-medium leading-relaxed max-w-xs">
+                            Learn, Build, and Grow Together. Join the elite community of ambitious developers building amazing projects.
                         </p>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Quick Links Column */}
                     <div>
-                        <h3 className="text-white font-black mb-6 text-lg">Quick Links</h3>
-                        <ul className="space-y-3 text-base">
-                            <li><a href="/" className="text-gray-400 hover:text-accent font-semibold transition-colors duration-200">Home</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-accent font-semibold transition-colors duration-200">About Us</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-accent font-semibold transition-colors duration-200">Events</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-accent font-semibold transition-colors duration-200">Resources</a></li>
+                        <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-sm">Navigation</h4>
+                        <ul className="space-y-4">
+                            {['Home', 'About Us', 'Events', 'Resources', 'Team'].map((item) => (
+                                <li key={item}>
+                                    <Link to={`/${item.toLowerCase().replace(' us', '')}`} className="text-gray-400 hover:text-white transition-colors duration-300 font-medium flex items-center group">
+                                        <span className="w-0 h-px bg-accent mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span>
+                                        {item}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Community */}
+                    {/* Community Column */}
                     <div>
-                        <h3 className="text-white font-black mb-6 text-lg">Community</h3>
-                        <ul className="space-y-3 text-base">
-                            <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 font-semibold transition-colors duration-200">💬 Discord</a></li>
-                            <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-green-400 font-semibold transition-colors duration-200">💬 WhatsApp</a></li>
-                            <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-gray-300 font-semibold transition-colors duration-200">💻 GitHub</a></li>
-                            <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-blue-300 font-semibold transition-colors duration-200">🐦 Twitter</a></li>
+                        <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-sm">Community</h4>
+                        <ul className="space-y-4">
+                            {[
+                                { name: 'Discord', icon: '💬' },
+                                { name: 'WhatsApp', icon: '📱' },
+                                { name: 'GitHub', icon: '💻' },
+                                { name: 'Twitter', icon: '🐦' }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 font-medium flex items-center gap-3 group">
+                                        <span className="opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0">{item.icon}</span>
+                                        {item.name}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Connect */}
+                    {/* Connect Column */}
                     <div>
-                        <h3 className="text-white font-black mb-6 text-lg">Connect</h3>
-                        <div className="flex flex-col gap-3">
-                            <a href="#" className="inline-flex items-center gap-3 text-gray-400 hover:text-accent font-semibold transition-colors duration-200">
-                                <span className="text-2xl">✉️</span> Email
-                            </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-gray-400 hover:text-gray-300 font-semibold transition-colors duration-200">
-                                <span className="text-2xl">💻</span> GitHub
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-gray-400 hover:text-blue-400 font-semibold transition-colors duration-200">
-                                <span className="text-2xl">🔗</span> LinkedIn
-                            </a>
-                        </div>
+                        <h4 className="text-white font-bold mb-6 tracking-wide uppercase text-sm">Connect</h4>
+                        <ul className="space-y-4">
+                            <li className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group">
+                                <span className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-accent/20 transition-colors">✉️</span>
+                                <span className="font-medium">hello@codrithm.com</span>
+                            </li>
+                            <li className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300 group">
+                                <span className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">🔗</span>
+                                <span className="font-medium">LinkedIn</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                {/* Divider */}
-                <div className="border-t border-gray-800 my-8"></div>
-
-                {/* Bottom Footer */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-gray-500 text-sm font-semibold">
-                        &copy; {currentYear} <span className="font-black text-white">Codrithm</span>. All rights reserved. | Made with ❤️ for developers
+                {/* Bottom Bar */}
+                <div className="py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-500 text-sm font-medium">
+                        © 2026 <span className="text-white font-bold">Codrithm</span>. All rights reserved. <br className="md:hidden" />
+                        <span className="hidden md:inline"> | </span> Made with <span className="text-red-500 animate-pulse inline-block">❤️</span> for developers
                     </p>
-                    <div className="flex gap-8 text-sm">
-                        <a href="#" className="text-gray-500 hover:text-accent font-semibold transition-colors duration-200">Privacy Policy</a>
-                        <a href="#" className="text-gray-500 hover:text-accent font-semibold transition-colors duration-200">Terms of Service</a>
-                        <a href="#" className="text-gray-500 hover:text-accent font-semibold transition-colors duration-200">Cookie Policy</a>
+                    <div className="flex space-x-6 text-sm font-medium">
+                        <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" className="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>

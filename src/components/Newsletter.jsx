@@ -2,56 +2,78 @@ import React, { useState } from 'react'
 
 export default function Newsletter() {
     const [email, setEmail] = useState('')
-    const [isSubscribed, setIsSubscribed] = useState(false)
+    const [status, setStatus] = useState('idle')
 
-    const handleSubscribe = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        if (email) {
-            setIsSubscribed(true)
+        setStatus('submitting')
+        
+        setTimeout(() => {
+            setStatus('success')
             setEmail('')
-            setTimeout(() => setIsSubscribed(false), 3000)
-        }
+            setTimeout(() => setStatus('idle'), 3000)
+        }, 1000)
     }
 
     return (
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-                <div className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 border border-primary-700 shadow-2xl overflow-hidden relative">
-                    {/* Background Decoration - Hidden on mobile */}
-                    <div className="hidden sm:block absolute top-0 right-0 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-accent/10 rounded-full blur-3xl -mr-24 sm:-mr-28 md:-mr-32 -mt-24 sm:-mt-28 md:-mt-32 opacity-50"></div>
-                    <div className="hidden sm:block absolute bottom-0 left-0 w-40 sm:w-48 h-40 sm:h-48 bg-primary-600/10 rounded-full blur-3xl -ml-20 sm:-ml-24 -mb-20 sm:-mb-24 opacity-50"></div>
-
-                    <div className="relative z-10 max-w-full md:max-w-2xl w-full">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2 sm:mb-3 md:mb-4">
-                            Stay Updated
-                        </h3>
-                        <p className="text-sm sm:text-base md:text-lg text-primary-100 mb-4 sm:mb-6 md:mb-8 font-medium">
-                            Get the latest news, events, and resources delivered to your inbox
-                        </p>
-
-                        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 w-full">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                                className="w-full sm:flex-1 px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-xs sm:text-sm md:text-base"
-                            />
-                            <button
-                                type="submit"
-                                className="w-full sm:w-auto px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-accent to-yellow-400 text-gray-900 rounded-lg font-bold text-xs sm:text-sm md:text-base hover:shadow-lg transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+        <div className="relative bg-[#ffffff05] backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 sm:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
+            {/* Ambient Glow */}
+            <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+            <div className="absolute -left-32 -top-32 w-64 h-64 bg-accent/20 rounded-full blur-[80px]"></div>
+            
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-6 font-bold text-xs uppercase tracking-widest text-accent">
+                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                        Weekly intel
+                    </span>
+                    <h3 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">Stay 10x Ahead.</h3>
+                    <p className="text-gray-400 font-medium leading-relaxed mb-0">
+                        Get curated tutorials, tools, and community updates delivered straight to your inbox. No spam, just value.
+                    </p>
+                </div>
+                
+                <div className="relative">
+                    {status === 'success' ? (
+                        <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-6 text-center animate-in fade-in duration-500">
+                            <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 text-green-400 rounded-full mb-3">✓</div>
+                            <h4 className="text-xl font-bold text-green-400 mb-1">Access Granted</h4>
+                            <p className="text-green-400/80 text-sm font-medium">You're now on the priority list.</p>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                            <div className="relative group/input">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-blue-500 rounded-2xl opacity-0 group-focus-within/input:opacity-50 blur transition-opacity duration-500"></div>
+                                <input 
+                                    type="email" 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Enter your email address..." 
+                                    required
+                                    className="relative w-full px-6 py-5 bg-[#030712]/50 backdrop-blur-xl border border-white/10 rounded-2xl text-white font-medium focus:outline-none placeholder-gray-500 shadow-inner transition-all"
+                                />
+                            </div>
+                            <button 
+                                type="submit" 
+                                disabled={status === 'submitting'}
+                                className="w-full sm:w-auto px-8 py-5 bg-white text-[#030712] rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-gray-200 transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex justify-center items-center gap-3"
                             >
-                                {isSubscribed ? '✓ Subscribed!' : 'Subscribe'}
+                                {status === 'submitting' ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-[#030712] border-t-transparent rounded-full animate-spin"></div>
+                                        Processing...
+                                    </>
+                                ) : (
+                                    <>
+                                        Subscribe Now 
+                                        <span className="text-lg">➜</span>
+                                    </>
+                                )}
                             </button>
                         </form>
-
-                        <p className="text-xs text-gray-300 mt-3 sm:mt-4">
-                            ✓ No spam. Unsubscribe at any time.
-                        </p>
-                    </div>
+                    )}
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

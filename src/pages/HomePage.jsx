@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Newsletter from '../components/Newsletter'
 
 export default function HomePage() {
     const stats = [
@@ -41,7 +40,7 @@ export default function HomePage() {
             icon: '⚛️'
         },
         {
-            title: 'Web Development Bootcamp',
+            title: 'Web Dev Networking Meetup',
             date: 'April 20, 2026',
             attendees: 156,
             icon: '🚀'
@@ -55,82 +54,87 @@ export default function HomePage() {
     ]
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-[#030712] font-sans overflow-hidden">
+            {/* Global Ambient Background */}
+            <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none z-0"></div>
+
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-20 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-48">
-                <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <section className="relative pt-24 sm:pt-32 md:pt-48 pb-24 sm:pb-32 md:pb-40">
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-accent/20 rounded-full mix-blend-screen filter blur-[150px] animate-pulse pointer-events-none"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-blue-600/10 rounded-full mix-blend-screen filter blur-[150px] animate-pulse pointer-events-none" style={{ animationDelay: '2s' }}></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="max-w-2xl mb-16">
-                        <div className="inline-block px-8 py-3 bg-accent/30 border-2 border-accent rounded-full mb-10 hover:bg-accent/40 transition-colors">
-                            <span className="text-accent font-bold text-base">✨ Welcome to the Developer Community</span>
+                    <div className="max-w-4xl max-w-3xl mb-16 relative">
+                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                            <span className="text-gray-300 font-bold uppercase tracking-[0.2em] text-xs">Welcome to the Developer Hub</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight drop-shadow-lg">
-                            Learn, Build, <br /> and Grow Together
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tighter drop-shadow-2xl">
+                            Learn, Build, <br className="hidden sm:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-purple-400">Grow Together.</span>
                         </h1>
-                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-16 leading-relaxed font-semibold drop-shadow-md">
-                            The ultimate platform for developers to learn new skills, collaborate on projects, and advance their careers
-                        </p>
-                        <p className="text-lg md:text-xl text-gray-200 mb-12 font-medium">
-                            Join Codrithm and connect with 5000+ developers worldwide
+                        <p className="text-xl sm:text-2xl text-gray-400 mb-12 font-medium leading-relaxed max-w-2xl">
+                            The elite platform for developers to master new skills, collaborate on high-impact projects, and accelerate their careers.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
-                            <button className="px-10 py-5 bg-gradient-to-r from-accent to-yellow-400 text-gray-900 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 shadow-xl">
-                                🚀 Start Learning Now
-                            </button>
-                            <button className="px-10 py-5 border-3 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-primary-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                                👥 Join Community
-                            </button>
+                            <Link to="/resources" className="group px-8 py-5 bg-gradient-to-r from-accent via-blue-500 to-purple-600 rounded-2xl font-black text-white text-lg shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+                                Start Learning <span className="group-hover:translate-x-2 transition-transform">➜</span>
+                            </Link>
+                            <Link to="/join" className="group px-8 py-5 bg-[#ffffff05] border border-white/10 rounded-2xl font-black text-white text-lg backdrop-blur-md hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+                                Join Community
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Stats Section */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-20 mb-12 sm:mb-20">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                    {stats.map((stat, index) => (
-                        <div key={index} className="group relative bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-3 border border-gray-100 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="relative z-10">
-                                <p className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent to-primary-600 mb-4 group-hover:animate-bounce">
-                                    {stat.value}
-                                </p>
-                                <p className="text-gray-700 text-lg font-bold group-hover:text-accent transition-colors duration-300">{stat.label}</p>
+            <section className="relative z-20 pb-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="group relative bg-[#ffffff03] backdrop-blur-xl rounded-[32px] p-10 border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl">
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="relative z-10 flex flex-col items-center text-center">
+                                    <p className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 mb-2 group-hover:from-accent group-hover:to-white transition-all duration-500">
+                                        {stat.value}
+                                    </p>
+                                    <p className="text-gray-500 text-sm font-bold uppercase tracking-widest">{stat.label}</p>
+                                </div>
                             </div>
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent to-primary-600 rounded-full filter blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* Features Section */}
-            <section className="py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 sm:mb-20">
-                        <span className="inline-block px-4 sm:px-6 py-2 bg-accent/20 border border-accent rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
-                            <span className="text-accent font-bold">✨ Our Benefits</span>
-                        </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Codrithm</span>?</h2>
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
-                            Everything you need to succeed in your developer journey
+            <section className="py-32 relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+                            Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Codrithm?</span>
+                        </h2>
+                        <p className="text-xl text-gray-400 max-w-2xl mx-auto font-medium">
+                            Everything you need to orchestrate your success in the tech industry.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
-                            <div key={index} className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary-600/10"></div>
-                                </div>
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-primary-600/20 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
+                            <div key={index} className="group relative bg-[#ffffff03] backdrop-blur-xl rounded-[32px] p-10 border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_-20px_rgba(139,92,246,0.3)] overflow-hidden">
+                                <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent rounded-full filter blur-[80px] opacity-10 group-hover:opacity-30 transition-opacity duration-500"></div>
                                 <div className="relative z-10">
-                                    <div className="text-7xl mb-8 group-hover:scale-125 group-hover:animate-bounce transition-transform duration-300 inline-block">{feature.icon}</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors duration-300">{feature.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{feature.description}</p>
+                                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 mb-8 text-3xl group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                                        {feature.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-blue-400 transition-all duration-300">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-gray-400 font-medium leading-relaxed">
+                                        {feature.description}
+                                    </p>
                                 </div>
                             </div>
                         ))}
@@ -139,206 +143,65 @@ export default function HomePage() {
             </section>
 
             {/* Upcoming Events Section */}
-            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 sm:mb-20">
-                        <span className="inline-block px-4 sm:px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
-                            <span className="text-primary-600 font-bold">🎯 Events</span>
-                        </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Events & Workshops</span></h2>
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
-                            Join our community events and accelerate your learning
-                        </p>
+            <section className="py-32 relative overflow-hidden">
+                <div className="absolute top-1/2 left-0 w-[40vw] h-[40vw] bg-accent/10 rounded-full filter blur-[120px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                        <div className="max-w-2xl">
+                            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+                                Live <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-accent">Sessions</span>
+                            </h2>
+                            <p className="text-xl text-gray-400 font-medium">
+                                Join our premium technical workshops and level up your engineering skills.
+                            </p>
+                        </div>
+                        <Link to="/events" className="group hidden md:inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-xl font-bold hover:bg-white/10 transition-all">
+                            View Calendar <span className="group-hover:translate-x-1 transition-transform">➜</span>
+                        </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                         {upcomingEvents.map((event, index) => (
-                            <div key={index} className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-600 via-accent to-primary-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                                <div className="p-10 relative z-10">
-                                    <div className="text-8xl mb-6 group-hover:animate-bounce inline-block transition-transform duration-300">{event.icon}</div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-accent transition-colors duration-300">{event.title}</h3>
-                                    <div className="space-y-4 text-gray-600 mb-8">
-                                        <p className="flex items-center gap-3 text-lg">
-                                            <span className="text-2xl">📅</span> <span className="font-semibold">{event.date}</span>
-                                        </p>
-                                        <p className="flex items-center gap-3 text-lg">
-                                            <span className="text-2xl">👥</span> <span className="font-semibold">{event.attendees} people interested</span>
-                                        </p>
+                            <div key={index} className="group relative bg-[#ffffff03] backdrop-blur-xl rounded-[32px] p-8 border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full filter blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10 flex-grow">
+                                    <div className="flex justify-between items-start mb-6">
+                                        <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 text-3xl group-hover:rotate-6 group-hover:scale-110 transition-transform duration-500">
+                                            {event.icon}
+                                        </div>
+                                        <div className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-xs font-bold text-gray-300 tracking-wider">
+                                            UPCOMING
+                                        </div>
                                     </div>
-                                    <button className="w-full py-4 bg-gradient-to-r from-primary-600 to-accent text-white rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 hover:from-primary-700 hover:to-accent/90">
-                                        Register Now ➜
+                                    <h3 className="text-2xl font-black text-white mb-6 leading-snug group-hover:text-blue-400 transition-colors">
+                                        {event.title}
+                                    </h3>
+                                </div>
+                                <div className="relative z-10 mt-auto pt-6 border-t border-white/5">
+                                    <div className="bg-[#030712]/50 rounded-xl p-4 flex justify-between items-center mb-6">
+                                        <div>
+                                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Date</p>
+                                            <p className="text-sm text-gray-300 font-bold">{event.date}</p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Registered</p>
+                                            <p className="text-sm text-accent font-bold">{event.attendees}</p>
+                                        </div>
+                                    </div>
+                                    <button className="w-full py-4 text-sm font-black uppercase tracking-widest text-white border border-white/10 rounded-xl group-hover:bg-white group-hover:text-[#030712] transition-colors duration-300">
+                                        Reserve Spot
                                     </button>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    <div className="text-center">
-                        <button className="group px-10 py-5 bg-gradient-to-r from-primary-600 to-accent text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110 hover:from-primary-700 hover:to-accent/90">
-                            View All Events ✨
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            {/* Community Section */}
-            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 sm:mb-20">
-                        <span className="inline-block px-4 sm:px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
-                            <span className="text-primary-600 font-bold">🌍 Community Platforms</span>
-                        </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">
-                            Connect on Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Preferred Platform</span>
-                        </h2>
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
-                            Choose your favorite way to connect with our thriving community of developers
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
-                        <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-primary-600/10"></div>
-                            </div>
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-primary-600/20 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="text-7xl mb-6 group-hover:animate-bounce inline-block transition-transform duration-300">💬</div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">Discord</h3>
-                                <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">Real-time chat with 2500+ active members</p>
-                                <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                                    Join Discord ↗
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-primary-600/10"></div>
-                            </div>
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-primary-600/20 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="text-7xl mb-6 group-hover:animate-bounce inline-block transition-transform duration-300">📱</div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors duration-300">WhatsApp</h3>
-                                <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">Quick updates with 1800+ engaged members</p>
-                                <button className="w-full py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                                    Join WhatsApp ↗
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-gray-700/10 to-primary-600/10"></div>
-                            </div>
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gray-600/20 to-primary-600/20 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="text-7xl mb-6 group-hover:animate-bounce inline-block transition-transform duration-300">💻</div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300">GitHub</h3>
-                                <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">Open-source projects with 3500+ collaborators</p>
-                                <button className="w-full py-3 bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                                    Visit GitHub ↗
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-primary-600/10"></div>
-                            </div>
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-primary-600/20 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-500"></div>
-                            <div className="relative z-10">
-                                <div className="text-7xl mb-6 group-hover:animate-bounce inline-block transition-transform duration-300">🔗</div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">LinkedIn</h3>
-                                <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">Professional network with 3200+ followers</p>
-                                <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                                    Follow LinkedIn ↗
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials Section */}
-            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 sm:mb-20">
-                        <span className="inline-block px-4 sm:px-6 py-2 bg-yellow-400/20 border border-yellow-400 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
-                            <span className="text-yellow-600 font-bold">⭐ Success Stories</span>
-                        </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Members Say</span></h2>
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">Join thousands of developers transforming their careers</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                        {[
-                            {
-                                text: "Codrithm helped me land my dream job! The resources and community support were invaluable.",
-                                author: "Sarah Johnson",
-                                role: "Full-Stack Developer",
-                                avatar: "👩‍💻"
-                            },
-                            {
-                                text: "The best community for learning web development. Everyone is so helpful and supportive!",
-                                author: "Mike Chen",
-                                role: "React Developer",
-                                avatar: "👨‍💻"
-                            },
-                            {
-                                text: "Amazing courses and mentors. I've grown so much as a developer since joining Codrithm.",
-                                author: "Emily Rodriguez",
-                                role: "Junior Developer",
-                                avatar: "👩‍🚀"
-                            }
-                        ].map((testimonial, index) => (
-                            <div key={index} className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-accent/5"></div>
-                                </div>
-                                <div className="relative z-10">
-                                    <div className="flex gap-1 mb-6">
-                                        {[...Array(5)].map((_, i) => <span key={i} className="text-2xl group-hover:animate-bounce transition-all" style={{ animationDelay: `${i * 0.1}s` }}>⭐</span>)}
-                                    </div>
-                                    <p className="text-gray-700 text-lg mb-8 leading-relaxed italic font-medium group-hover:text-gray-900 transition-colors duration-300">"{testimonial.text}"</p>
-                                    <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                                        <div className="text-5xl">{testimonial.avatar}</div>
-                                        <div>
-                                            <p className="font-bold text-gray-900 text-lg group-hover:text-accent transition-colors duration-300">{testimonial.author}</p>
-                                            <p className="text-gray-500 font-semibold">{testimonial.role}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <Newsletter />
-            <section className="relative py-32 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary-600 to-accent opacity-100"></div>
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-                </div>
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
-                    <span className="inline-block px-6 py-2 bg-white/20 border border-white/40 rounded-full mb-8 backdrop-blur-md">
-                        <span className="text-white font-bold">🎉 Limited Time Offer</span>
-                    </span>
-                    <h2 className="text-6xl md:text-7xl font-black mb-8 leading-tight">Ready to Transform Your Career?</h2>
-                    <p className="text-2xl mb-16 opacity-95 max-w-3xl mx-auto font-medium">
-                        Join 5000+ developers and start building amazing projects today. Get started for free!
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <button className="group px-12 py-6 bg-white text-accent rounded-2xl font-black text-xl hover:bg-gradient-to-r hover:from-white hover:to-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-110 flex items-center justify-center gap-2">
-                            <span>🚀 Get Started Free</span>
-                        </button>
-                        <button className="group px-12 py-6 border-3 border-white text-white rounded-2xl font-black text-xl hover:bg-white/20 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl transform hover:scale-110 flex items-center justify-center gap-2">
-                            <span>📚 Learn More</span>
-                        </button>
+                    <div className="text-center md:hidden mt-8">
+                        <Link to="/events" className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold hover:bg-white/10 transition-all">
+                            View Full Calendar ➜
+                        </Link>
                     </div>
                 </div>
             </section>

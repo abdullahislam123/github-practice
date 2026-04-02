@@ -9,7 +9,7 @@ const resources = [
         description: 'Learn how to build scalable React applications from scratch with best practices.',
         link: 'https://react.dev',
         status: 'Must-See',
-        color: 'from-blue-600 to-primary-600'
+        color: 'from-blue-500 to-blue-400'
     },
     {
         id: 2,
@@ -29,7 +29,7 @@ const resources = [
         description: 'A curated list of free resources, tools, and libraries for web developers.',
         link: 'https://github.com/free-programming-books',
         status: 'Starred',
-        color: 'from-gray-900 to-gray-700'
+        color: 'from-gray-400 to-gray-200'
     },
     {
         id: 4,
@@ -79,7 +79,7 @@ const resources = [
         description: 'Learn advanced SQL queries and data analysis techniques.',
         link: 'https://modern-sql.com',
         status: 'Trending',
-        color: 'from-green-600 to-primary-600'
+        color: 'from-emerald-500 to-green-400'
     }
 ]
 
@@ -97,20 +97,24 @@ export default function ResourcesPage() {
     })
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col">
+        <div className="min-h-screen bg-[#030712] flex flex-col font-sans overflow-hidden">
+            {/* Global Ambient Background */}
+            <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none"></div>
+
             {/* Hero Section */}
-            <section className="relative pt-24 sm:pt-32 md:pt-48 pb-20 bg-primary-900 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent rounded-full filter blur-[120px] animate-pulse"></div>
-                    <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary-600 rounded-full filter blur-[120px] animate-pulse" style={{ animationDelay: '3s' }}></div>
+            <section className="relative py-24 sm:py-32 md:py-48 z-10 overflow-hidden text-center">
+                <div className="absolute inset-0">
+                    <div className="absolute top-0 right-1/4 w-[40vw] h-[40vw] bg-accent/20 rounded-full mix-blend-screen filter blur-[150px] animate-pulse pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-1/4 w-[50vw] h-[50vw] bg-blue-600/10 rounded-full mix-blend-screen filter blur-[150px] animate-pulse pointer-events-none" style={{ animationDelay: '3s' }}></div>
                 </div>
                 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <span className="inline-block px-8 py-3 bg-accent/20 border border-accent/40 rounded-full mb-10 backdrop-blur-sm">
-                        <span className="text-white font-black tracking-widest text-sm uppercase">Your Hub of Excellence</span>
-                    </span>
-                    <h1 className="text-5xl sm:text-7xl font-black text-white mb-8 tracking-tight leading-[1.1]">
-                        Master Your Craft with <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-accent">Codrithm Resources</span>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                        <span className="text-gray-300 font-bold uppercase tracking-[0.2em] text-xs">Your Hub of Excellence</span>
+                    </div>
+                    <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1]">
+                        Master Your Craft with <br className="hidden sm:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-accent">Codrithm Resources</span>
                     </h1>
                     <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto font-medium leading-relaxed mb-12 italic">
                         "Structured learning for developers. Find the best tutorials, tools, and repositories in one place."
@@ -118,30 +122,32 @@ export default function ResourcesPage() {
                     
                     {/* Search Bar */}
                     <div className="max-w-3xl mx-auto relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-accent to-blue-500 rounded-[30px] filter blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                         <input 
                             type="text" 
                             placeholder="Search tutorials, AI tools, or repositories..." 
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full px-10 py-6 bg-white/10 backdrop-blur-xl border-2 border-white/20 text-white rounded-[30px] font-bold text-xl placeholder-gray-400 focus:outline-none focus:border-accent focus:bg-white/15 transition-all shadow-2xl"
+                            className="relative w-full px-10 py-6 bg-[#ffffff05] backdrop-blur-3xl border border-white/10 text-white rounded-[30px] font-bold text-lg sm:text-xl placeholder-gray-500 focus:outline-none focus:border-accent focus:bg-white/10 transition-all shadow-[0_0_50px_rgba(0,0,0,0.5)]"
                         />
-                        <div className="absolute right-6 top-1/2 -translate-y-1/2 text-accent text-3xl group-hover:scale-110 transition-transform">🔍</div>
+                        <div className="absolute right-8 top-1/2 -translate-y-1/2 text-accent text-3xl group-hover:scale-110 group-hover:text-blue-400 transition-all cursor-pointer">🔍</div>
                     </div>
                 </div>
             </section>
 
             {/* Category Filter and Grid */}
-            <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-10">
+            <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 <div className="flex flex-col items-center mb-20 text-center">
-                    <div className="flex flex-wrap justify-center gap-4 bg-white/80 backdrop-blur-xl p-5 rounded-[40px] border border-white shadow-2xl overflow-x-auto max-w-full">
+                    <div className="flex flex-wrap justify-center gap-3 bg-[#ffffff03] backdrop-blur-xl p-3 mt-4 rounded-[40px] border border-white/5 shadow-2xl overflow-x-auto max-w-full relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent blur-xl pointer-events-none"></div>
                         {categories.map((cat) => (
                             <button 
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`px-10 py-3.5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-300 ${
+                                className={`relative z-10 px-8 py-3 rounded-3xl font-black text-xs uppercase tracking-widest transition-all duration-300 ${
                                     activeCategory === cat 
-                                        ? 'bg-primary-900 text-white shadow-xl transform scale-105' 
-                                        : 'text-gray-500 hover:text-primary-600 hover:bg-gray-100'
+                                        ? 'bg-gradient-to-r from-accent to-blue-600 text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' 
+                                        : 'text-gray-400 hover:text-white hover:bg-white/10 border border-transparent hover:border-white/10'
                                 }`}
                             >
                                 {cat}
@@ -151,52 +157,53 @@ export default function ResourcesPage() {
                 </div>
 
                 {filteredResources.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {filteredResources.map((res) => (
                             <div 
                                 key={res.id}
-                                className="group bg-white rounded-[40px] p-8 border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 relative overflow-hidden"
+                                className="group bg-[#ffffff03] backdrop-blur-3xl rounded-[32px] p-8 border border-white/5 hover:border-white/20 shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden flex flex-col"
                             >
                                 {/* Card Glow */}
-                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${res.color} opacity-5 group-hover:opacity-10 rounded-full filter blur-3xl transition-opacity duration-500`}></div>
+                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${res.color} opacity-0 group-hover:opacity-10 rounded-full filter blur-[40px] transition-opacity duration-500 pointer-events-none`}></div>
                                 
                                 <div className="relative z-10 flex flex-col h-full">
-                                    <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${res.color} flex items-center justify-center text-4xl text-white mb-6 shadow-xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${res.color} flex items-center justify-center text-3xl text-white mb-6 shadow-xl transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500`}>
                                         {res.icon}
                                     </div>
-                                    <span className={`inline-block px-5 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-gray-100 text-gray-500 mb-6 group-hover:bg-primary-50 group-hover:text-primary-600 transition-colors`}>
+                                    <span className={`inline-block px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-white/5 text-gray-300 mb-6 border border-white/10 group-hover:border-white/30 transition-colors`}>
                                         {res.category}
                                     </span>
-                                    <h3 className="text-2xl font-black text-gray-900 mb-4 leading-tight group-hover:text-primary-600 transition-colors">
+                                    <h3 className="text-2xl font-black text-white mb-4 leading-snug group-hover:text-blue-400 transition-colors">
                                         {res.title}
                                     </h3>
-                                    <p className="text-gray-600 font-medium leading-relaxed mb-10 flex-grow">
+                                    <p className="text-gray-400 font-medium leading-relaxed mb-10 flex-grow text-sm">
                                         {res.description}
                                     </p>
-                                    <div className="mt-auto flex items-center justify-between">
+                                    <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
                                         <a 
                                             href={res.link} 
                                             target="_blank" 
                                             rel="noopener noreferrer" 
-                                            className="font-black text-primary-600 hover:text-accent flex items-center gap-2 group/link"
+                                            className="font-black text-white hover:text-accent flex items-center gap-2 group/link text-sm uppercase tracking-wider"
                                         >
-                                            Explore <span className="transform group-hover/link:translate-x-2 transition-transform">➜</span>
+                                            Explore <span className="transform group-hover/link:translate-x-2 transition-transform text-accent">➜</span>
                                         </a>
-                                        <span className={`px-4 py-1.5 bg-gradient-to-r ${res.color} text-white font-black text-[10px] uppercase rounded-lg shadow-md`}>
+                                        <span className={`px-4 py-1.5 bg-gradient-to-r ${res.color} text-white font-black text-[9px] tracking-widest uppercase rounded-lg shadow-md`}>
                                             {res.status}
                                         </span>
                                     </div>
                                 </div>
-                                <div className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${res.color} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+                                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${res.color} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <div className="text-center py-40">
-                        <p className="text-4xl text-gray-400 font-black mb-8 italic">No resources found for "{searchQuery}"</p>
+                    <div className="text-center py-40 border border-white/5 rounded-[40px] bg-[#ffffff02] backdrop-blur-xl">
+                        <div className="text-6xl mb-6 opacity-50">🧭</div>
+                        <p className="text-4xl text-gray-400 font-black mb-8">No resources found for "{searchQuery}"</p>
                         <button 
                             onClick={() => {setSearchQuery(''); setActiveCategory('All')}}
-                            className="px-10 py-4 bg-primary-900 text-white rounded-2xl font-black text-lg hover:shadow-2xl transition-all"
+                            className="px-10 py-4 bg-white/10 border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:text-[#030712] transition-colors"
                         >
                             Reset Exploration
                         </button>
@@ -205,44 +212,42 @@ export default function ResourcesPage() {
             </section>
 
             {/* Platform Benefits Highlighted Section */}
-            <section className="bg-white py-32 overflow-hidden relative">
-                <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary-50 rounded-full filter blur-[150px] -translate-x-1/2 -translate-y-1/2 opacity-60"></div>
+            <section className="bg-white/[0.02] py-32 overflow-hidden relative border-t border-white/5">
+                <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-accent/10 rounded-full filter blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                         <div>
-                            <h2 className="text-4xl sm:text-6xl font-black text-gray-900 mb-10 leading-tight">Structured Like the Best Platforms. Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500">Developers.</span></h2>
-                            <p className="text-xl text-gray-600 mb-12 leading-relaxed font-medium">
-                                We've analyzed the best learning platforms like W3Schools and MDN to bring you a hand-picked selection of high-quality tutorials and tools that actually matter in modern web development.
+                            <h2 className="text-4xl sm:text-6xl font-black text-white mb-10 leading-tight">Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500">Developers.</span></h2>
+                            <p className="text-xl text-gray-400 mb-12 leading-relaxed font-medium">
+                                We've analyzed the best learning platforms to bring you a hand-picked selection of high-quality tutorials and tools that actually matter in modern web development.
                             </p>
-                            <div className="space-y-6">
+                            <div className="space-y-8">
                                 {[
                                     { title: 'Quality over Quantity', desc: 'No fluff. Only the resources that we use ourselves.' },
                                     { title: 'Regular Updates', desc: 'Tech evolves fast. So does our repository.' },
                                     { title: 'Always Free', desc: 'Access all internal guides and external links at 0 cost.' }
                                 ].map((item, id) => (
-                                    <div key={id} className="flex gap-6">
-                                        <div className="w-10 h-10 bg-accent text-white rounded-xl flex items-center justify-center font-black flex-shrink-0 shadow-lg">✓</div>
+                                    <div key={id} className="flex gap-6 group">
+                                        <div className="w-12 h-12 bg-white/5 border border-white/10 text-accent rounded-xl flex items-center justify-center font-black flex-shrink-0 shadow-lg group-hover:bg-accent group-hover:text-white transition-colors duration-300">✓</div>
                                         <div>
-                                            <h4 className="text-xl font-black text-gray-900 mb-1">{item.title}</h4>
-                                            <p className="text-gray-500 font-medium">{item.desc}</p>
+                                            <h4 className="text-2xl font-black text-white mb-2">{item.title}</h4>
+                                            <p className="text-gray-400 font-medium">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
                         <div className="relative group">
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-blue-500/20 rounded-[50px] filter blur-3xl transform group-hover:scale-110 transition-transform duration-500"></div>
-                            <div className="relative bg-white/60 backdrop-blur-2xl rounded-[50px] p-10 border border-white shadow-2xl overflow-hidden aspect-[4/3] flex items-center justify-center text-center">
-                                <div className="text-[120px] mb-8 group-hover:rotate-12 transition-transform duration-700">📚</div>
-                                <div className="absolute inset-0 flex items-center justify-center -z-10 text-[180px] opacity-5">W3S</div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-blue-500/20 rounded-[50px] filter blur-[60px] transform group-hover:scale-105 transition-transform duration-500 pointer-events-none"></div>
+                            <div className="relative bg-[#ffffff03] backdrop-blur-2xl rounded-[50px] p-10 border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden aspect-[4/3] flex items-center justify-center text-center">
+                                <div className="text-[120px] mb-8 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 drop-shadow-2xl">📚</div>
+                                <div className="absolute inset-0 flex items-center justify-center -z-10 text-[180px] font-black text-white/5">DEV</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            {/* Newsletter Section provided by Footer/Layout */}
         </div>
     )
 }

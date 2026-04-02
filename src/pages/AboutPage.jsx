@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Newsletter from '../components/Newsletter'
 
 export default function AboutPage() {
@@ -74,41 +75,48 @@ export default function AboutPage() {
     ]
 
     return (
-        <div className="w-full">
+        <div className="min-h-screen bg-[#030712] font-sans">
+            {/* Ambient Backgrounds */}
+            <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0 pointer-events-none"></div>
+
             {/* Hero Section */}
-            <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-primary-50 to-accent-50 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">
-                            About Codrithm
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-gray-700 font-semibold mb-2 sm:mb-4">
-                            Learn, Build, and Grow Together
-                        </p>
-                        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-                            A community dedicated to empowering developers of all levels to succeed through learning, collaboration, and mutual support.
-                        </p>
+            <section className="relative py-24 sm:py-32 md:py-48 overflow-hidden">
+                <div className="absolute inset-0 z-0 text-center">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-accent/10 rounded-full filter blur-[200px] pointer-events-none"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+                        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                        <span className="text-gray-300 font-bold uppercase tracking-[0.2em] text-xs">The Vision Statement</span>
                     </div>
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tighter">
+                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Codrithm</span>
+                    </h1>
+                    <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto font-medium leading-relaxed mb-12">
+                        A community dedicated to empowering developers of all levels to succeed through learning, collaboration, and mutual support.
+                    </p>
                 </div>
             </section>
 
             {/* Purpose Section */}
-            <section className="py-12 sm:py-16 md:py-20 bg-white">
+            <section className="py-24 relative z-10 border-t border-white/5 bg-white/[0.02]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-center mb-8 sm:mb-12 md:mb-16 text-gray-900">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-16 text-white tracking-tight">
                         Our Story
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                         {purposes.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-gradient-to-br from-primary-50 to-accent-50 p-8 rounded-2xl border border-primary-100 hover:border-primary-300 transition-colors duration-300"
+                                className="group bg-[#ffffff03] backdrop-blur-xl p-10 rounded-[32px] border border-white/5 hover:border-white/20 hover:shadow-[0_20px_40px_-20px_rgba(139,92,246,0.3)] transition-all duration-500 overflow-hidden relative"
                             >
-                                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{item.icon}</div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 filter blur-[40px] transition-opacity duration-500"></div>
+                                <div className="relative z-10 text-5xl mb-6 group-hover:scale-110 transition-transform duration-500 inline-block drop-shadow-xl">{item.icon}</div>
+                                <h3 className="text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight">
                                     {item.title}
                                 </h3>
-                                <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                                <p className="text-lg text-gray-400 leading-relaxed font-medium">
                                     {item.description}
                                 </p>
                             </div>
@@ -118,32 +126,40 @@ export default function AboutPage() {
             </section>
 
             {/* Who We Serve */}
-            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-center mb-8 sm:mb-12 md:mb-16 text-gray-900">
-                        Who It's For
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+            <section className="py-32 relative z-10">
+                <div className="absolute top-1/2 left-0 w-[40vw] h-[40vw] bg-blue-500/10 rounded-full filter blur-[150px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-20">
+                        <span className="text-blue-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Target Audience</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
+                            Who It's For
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                         {audience.map((group, index) => (
                             <div
                                 key={index}
-                                className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                                className="group bg-[#ffffff03] backdrop-blur-3xl p-10 lg:p-12 rounded-[40px] border border-white/5 hover:border-white/20 shadow-2xl transition-all duration-500 relative overflow-hidden"
                             >
-                                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{group.icon}</div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
-                                    {group.title}
-                                </h3>
-                                <p className="text-sm sm:text-base text-primary-600 font-semibold mb-4 sm:mb-6">
-                                    {group.subtitle}
-                                </p>
-                                <ul className="space-y-2 sm:space-y-3">
-                                    {group.benefits.map((benefit, idx) => (
-                                        <li key={idx} className="flex items-start">
-                                            <span className="text-accent text-lg sm:text-xl mr-2 sm:mr-3 font-bold flex-shrink-0">✓</span>
-                                            <span className="text-gray-700 text-sm sm:text-base md:text-lg">{benefit}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                <div className="relative z-10">
+                                    <div className="text-6xl mb-6 group-hover:animate-pulse inline-block">{group.icon}</div>
+                                    <h3 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
+                                        {group.title}
+                                    </h3>
+                                    <p className="text-lg tracking-widest text-accent font-bold uppercase mb-8">
+                                        {group.subtitle}
+                                    </p>
+                                    <ul className="space-y-4">
+                                        {group.benefits.map((benefit, idx) => (
+                                            <li key={idx} className="flex items-start">
+                                                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-accent/20 text-accent font-bold mr-4 flex-shrink-0 mt-0.5">✓</span>
+                                                <span className="text-gray-300 text-lg font-medium">{benefit}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -151,22 +167,29 @@ export default function AboutPage() {
             </section>
 
             {/* What Members Can Learn & Achieve */}
-            <section className="py-12 sm:py-16 md:py-20 bg-white">
+            <section className="py-32 relative z-10 bg-white/[0.02] border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-center mb-8 sm:mb-12 md:mb-16 text-gray-900">
-                        What You Can Learn & Achieve
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <div className="text-center mb-20">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
+                            What You Can <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Achieve</span>
+                        </h2>
+                        <p className="text-xl text-gray-400 font-medium">Unlock your full potential with our proven framework.</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {achievements.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 sm:p-6 md:p-8 rounded-xl border border-gray-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+                                className="group relative bg-[#ffffff03] backdrop-blur-xl p-8 rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
                             >
-                                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{item.icon}</div>
-                                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full filter blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="relative z-10 text-4xl mb-6 bg-white/5 w-16 h-16 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-accent/20 transition-colors shadow-lg">
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-2xl font-black text-white mb-4 group-hover:text-blue-400 transition-colors">
                                     {item.title}
                                 </h3>
-                                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                                <p className="text-gray-400 leading-relaxed font-medium">
                                     {item.description}
                                 </p>
                             </div>
@@ -175,18 +198,19 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <Newsletter />
-            <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary-600 to-accent text-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6">
-                        Ready to Join Our Community?
+            {/* Sub/Join CTA Section integrated beautifully */}
+            <section className="py-24 relative z-10">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+                    <div className="absolute inset-0 bg-accent/20 rounded-full filter blur-[150px] pointer-events-none -z-10"></div>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-8 text-white tracking-tight">
+                        Ready to Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Movement?</span>
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90">
-                        Start your learning journey today and connect with thousands of developers who are passionate about growth.
+                    <p className="text-xl md:text-2xl mb-12 text-gray-400 font-medium max-w-2xl mx-auto">
+                        Start your journey today and connect with thousands of developers who are passionate about scaling their skills.
                     </p>
-                    <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-100 shadow-lg transform hover:scale-105 transition-all duration-300">
-                        Get Started Now
-                    </button>
+                    <Link to="/join" className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-accent via-blue-500 to-purple-600 rounded-2xl font-black text-white text-xl shadow-[0_0_40px_rgba(139,92,246,0.3)] hover:shadow-[0_0_60px_rgba(139,92,246,0.5)] transform hover:-translate-y-1 transition-all duration-300">
+                        Join Community Now ➜
+                    </Link>
                 </div>
             </section>
         </div>
