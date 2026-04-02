@@ -40,9 +40,9 @@ export default function Navigation() {
 
                     {/* CTA Button and Mobile Menu */}
                     <div className="flex items-center space-x-4">
-                        <button className="hidden sm:block px-6 py-2.5 bg-gradient-to-r from-primary-600 to-accent text-white rounded-lg font-bold text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        <Link to="/join" className="hidden sm:block px-6 py-2.5 bg-gradient-to-r from-primary-600 to-accent text-white rounded-lg font-bold text-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300">
                             Get Started
-                        </button>
+                        </Link>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="md:hidden text-2xl text-gray-700 hover:text-primary-600 transition-colors"
@@ -65,9 +65,9 @@ export default function Navigation() {
                                 {link.name}
                             </Link>
                         ))}
-                        <button className="w-full px-4 py-3 bg-gradient-to-r from-primary-600 to-accent text-white rounded-lg font-bold text-sm hover:shadow-lg transition-all duration-300 mt-4">
+                        <Link to="/join" onClick={() => setIsOpen(false)} className="block text-center w-full px-4 py-3 bg-gradient-to-r from-primary-600 to-accent text-white rounded-lg font-bold text-sm hover:shadow-lg transition-all duration-300 mt-4">
                             Get Started
-                        </button>
+                        </Link>
                     </div>
                 )}
             </div>

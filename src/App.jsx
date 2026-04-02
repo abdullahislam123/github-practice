@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage'
 import TeamPage from './pages/TeamPage'
 import EventsPage from './pages/EventsPage'
 import ResourcesPage from './pages/ResourcesPage'
+import JoinPage from './pages/JoinPage'
 
 export default function App() {
     return (
@@ -22,6 +23,7 @@ export default function App() {
                         <Route path="/team" element={<TeamPage />} />
                         <Route path="/events" element={<EventsPage />} />
                         <Route path="/resources" element={<ResourcesPage />} />
+                        <Route path="/join" element={<JoinPage />} />
                     </Routes>
                 </main>
 
