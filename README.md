@@ -136,11 +136,17 @@ index.html                   # HTML template
 
 ## � Home Page
 
-<img src="/screencapture-localhost-5173-2026-03-27-18_59_57.png" alt="Home Page Screenshot" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+<picture>
+  <source media="(max-width: 768px)" srcset="" />
+  <img src="" alt="Home Page Screenshot" style="width: 100%; max-width: 1200px; height: auto; border-radius: 12px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;" />
+</picture>
 
 ## 📖 About Page
 
-<img src="/screencapture-localhost-5173-about-2026-03-30-15_48_39.png" alt="About Page Screenshot" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+<picture>
+  <source media="(max-width: 768px)" srcset="" />
+  <img src="" alt="About Page Screenshot" style="width: 100%; max-width: 1200px; height: auto; border-radius: 12px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;" />
+</picture>
 
 ## �🎯 Home Page Content
 

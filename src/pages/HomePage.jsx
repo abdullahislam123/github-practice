@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Newsletter from '../components/Newsletter'
 
 export default function HomePage() {
     const stats = [
@@ -56,7 +57,7 @@ export default function HomePage() {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-40 pb-48">
+            <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-20 sm:pt-32 md:pt-40 pb-24 sm:pb-32 md:pb-48">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -67,10 +68,10 @@ export default function HomePage() {
                         <div className="inline-block px-8 py-3 bg-accent/30 border-2 border-accent rounded-full mb-10 hover:bg-accent/40 transition-colors">
                             <span className="text-accent font-bold text-base">✨ Welcome to the Developer Community</span>
                         </div>
-                        <h1 className="text-6xl md:text-7xl lg:text-7xl font-black text-white mb-8 leading-tight drop-shadow-lg">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight drop-shadow-lg">
                             Learn, Build, <br /> and Grow Together
                         </h1>
-                        <p className="text-2xl md:text-3xl text-white mb-16 leading-relaxed font-semibold drop-shadow-md">
+                        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-16 leading-relaxed font-semibold drop-shadow-md">
                             The ultimate platform for developers to learn new skills, collaborate on projects, and advance their careers
                         </p>
                         <p className="text-lg md:text-xl text-gray-200 mb-12 font-medium">
@@ -89,8 +90,8 @@ export default function HomePage() {
             </section>
 
             {/* Stats Section */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 mb-20">
-                <div className="grid md:grid-cols-4 gap-6">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-20 mb-12 sm:mb-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     {stats.map((stat, index) => (
                         <div key={index} className="group relative bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-3 border border-gray-100 overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -109,17 +110,17 @@ export default function HomePage() {
             {/* Features Section */}
             <section className="py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <span className="inline-block px-6 py-2 bg-accent/20 border border-accent rounded-full mb-6">
+                    <div className="text-center mb-12 sm:mb-20">
+                        <span className="inline-block px-4 sm:px-6 py-2 bg-accent/20 border border-accent rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
                             <span className="text-accent font-bold">✨ Our Benefits</span>
                         </span>
-                        <h2 className="text-6xl font-black text-gray-900 mb-6 leading-tight">Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Codrithm</span>?</h2>
-                        <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Codrithm</span>?</h2>
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
                             Everything you need to succeed in your developer journey
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                         {features.map((feature, index) => (
                             <div key={index} className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -138,19 +139,19 @@ export default function HomePage() {
             </section>
 
             {/* Upcoming Events Section */}
-            <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white">
+            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <span className="inline-block px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-6">
+                    <div className="text-center mb-12 sm:mb-20">
+                        <span className="inline-block px-4 sm:px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
                             <span className="text-primary-600 font-bold">🎯 Events</span>
                         </span>
-                        <h2 className="text-6xl font-black text-gray-900 mb-6 leading-tight">Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Events & Workshops</span></h2>
-                        <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">Upcoming <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Events & Workshops</span></h2>
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
                             Join our community events and accelerate your learning
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
                         {upcomingEvents.map((event, index) => (
                             <div key={index} className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -183,21 +184,21 @@ export default function HomePage() {
             </section>
 
             {/* Community Section */}
-            <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white">
+            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <span className="inline-block px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-6">
+                    <div className="text-center mb-12 sm:mb-20">
+                        <span className="inline-block px-4 sm:px-6 py-2 bg-primary-600/20 border border-primary-600 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
                             <span className="text-primary-600 font-bold">🌍 Community Platforms</span>
                         </span>
-                        <h2 className="text-6xl font-black text-gray-900 mb-6 leading-tight">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">
                             Connect on Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Preferred Platform</span>
                         </h2>
-                        <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">
                             Choose your favorite way to connect with our thriving community of developers
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-4 gap-8 mb-16">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
                         <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 overflow-hidden">
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-primary-600/10"></div>
@@ -262,17 +263,17 @@ export default function HomePage() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+            <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <span className="inline-block px-6 py-2 bg-yellow-400/20 border border-yellow-400 rounded-full mb-6">
+                    <div className="text-center mb-12 sm:mb-20">
+                        <span className="inline-block px-4 sm:px-6 py-2 bg-yellow-400/20 border border-yellow-400 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
                             <span className="text-yellow-600 font-bold">⭐ Success Stories</span>
                         </span>
-                        <h2 className="text-6xl font-black text-gray-900 mb-6 leading-tight">What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Members Say</span></h2>
-                        <p className="text-2xl text-gray-600 max-w-3xl mx-auto font-medium">Join thousands of developers transforming their careers</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-4 sm:mb-6 leading-tight">What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent">Members Say</span></h2>
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto font-medium">Join thousands of developers transforming their careers</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         {[
                             {
                                 text: "Codrithm helped me land my dream job! The resources and community support were invaluable.",
@@ -316,7 +317,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
+            <Newsletter />
             <section className="relative py-32 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary-600 to-accent opacity-100"></div>
                 <div className="absolute inset-0 opacity-20">

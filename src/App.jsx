@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
+import TeamPage from './pages/TeamPage'
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
+                        <Route path="/team" element={<TeamPage />} />
                     </Routes>
                 </main>
 

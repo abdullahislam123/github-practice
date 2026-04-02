@@ -7,6 +7,7 @@ export default function Navigation() {
     const links = [
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
+        { name: 'Team', path: '/team' },
     ]
 
     return (
